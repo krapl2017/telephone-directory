@@ -1,12 +1,10 @@
-import { useState } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
     <>
-      <table border={1}>
+      `<table>
         <thead>
           <tr>
             <th>Должность</th>
@@ -32,14 +30,16 @@ function App() {
             <td>tchistyakov@vyatsu.ru</td>
             <td>610000, г. Киров, ул. Московская, д. 39, каб. 2-204</td>
           </tr>
-          <td colSpan={5}>
+          <tr>
+            <td colSpan={5}>
               <div style={{float: "left"}}>
                 <h4>
-                  <span style={{display: "inline-block", width: "30px"}}></span>
+                  <span style={{display: "inline-block", width: "60px"}}></span>
                   Факультет автоматики и вычислительной техники
-                </h4> {/*Раздел 1 вложен в раздел 0, поэтому 1 табуляция в виде span*/}
+                </h4> {/*Раздел 1 относится к разделу 0, поэтому 1 табуляция в виде span*/}
               </div>
             </td>
+          </tr>
           <tr>
             <td>И.о. декана, к.т.н.</td>
             <td>Репкин Дмитрий Александрович</td>
@@ -47,15 +47,17 @@ function App() {
             <td>repkin@vyatsu.ru</td>
             <td>610000, г. Киров, ул. Московская , д. 39, каб 200</td>
           </tr>
-          <td colSpan={5}>
-              <div style={{float: "left"}}>
-                <h4>
-                  <span style={{display: "inline-block", width: "30px"}}></span>
-                  <span style={{display: "inline-block", width: "30px"}}></span>
-                  Кафедра систем автоматизации управления
-                </h4> {/*Раздел 2 вложен в раздел 1, поэтому 2 табуляция в виде span*/}
-              </div>
-          </td>
+          <tr>
+            <td colSpan={5}>
+                <div style={{float: "left"}}>
+                  <h4>
+                    <span style={{display: "inline-block", width: "60px"}}></span>
+                    <span style={{display: "inline-block", width: "60px"}}></span>
+                    Кафедра систем автоматизации управления
+                  </h4> {/*Раздел 2 относится к разделу 1, поэтому 2 табуляция в виде span*/}
+                </div>
+            </td>
+          </tr>
           <tr>
             <td>И.о. завкафедрой, к.т.н.</td>
             <td>Сандаков Сергей Юрьевич</td>
@@ -63,15 +65,17 @@ function App() {
             <td>syu_sandakov@vyatsu.ru</td>
             <td>610000, г. Киров, ул. Московская, д.39</td>
           </tr>
-          <td colSpan={5}>
-              <div style={{float: "left"}}>
-                <h4>
-                  <span style={{display: "inline-block", width: "30px"}}></span>
-                  <span style={{display: "inline-block", width: "30px"}}></span>
-                  Кафедра электронных вычислительных машин
-                </h4> {/*Раздел 2 вложен в раздел 1, поэтому 2 табуляция в виде span*/}
-              </div>
-          </td>
+          <tr>
+            <td colSpan={5}>
+                <div style={{float: "left"}}>
+                  <h4>
+                    <span style={{display: "inline-block", width: "60px"}}></span>
+                    <span style={{display: "inline-block", width: "60px"}}></span>
+                    Кафедра электронных вычислительных машин
+                  </h4> {/*Раздел 2 относится к разделу 1, поэтому 2 табуляция в виде span*/}
+                </div>
+            </td>
+          </tr>
           <tr>
             <td>Завкафедрой, доцент, канд. техн. наук</td>
             <td>Долженкова Мария Львовна</td>
@@ -79,15 +83,17 @@ function App() {
             <td>maryd@vyatsu.ru</td>
             <td>610000, г. Киров, ул. Московская, д. 39</td>
           </tr>
-          <td colSpan={5}>
-              <div style={{float: "left"}}>
-                <h4>
-                  <span style={{display: "inline-block", width: "30px"}}></span>
-                  <span style={{display: "inline-block", width: "30px"}}></span>
-                  Кафедра радиоэлектронных средств
-                </h4> {/*Раздел 2 вложен в раздел 1, поэтому 2 табуляция в виде span*/}
-              </div>
-          </td>
+          <tr>
+            <td colSpan={5}>
+                <div style={{float: "left"}}>
+                  <h4>
+                    <span style={{display: "inline-block", width: "60px"}}></span>
+                    <span style={{display: "inline-block", width: "60px"}}></span>
+                    Кафедра радиоэлектронных средств
+                  </h4> {/*Раздел 2 относится к разделу 1, поэтому 2 табуляция в виде span*/}
+                </div>
+            </td>
+          </tr>
           <tr>
             <td>И.о. завкафедрой, доцент, канд. техн. наук, доцент кафедры</td>
             <td>Харина Наталья Леонидовна</td>
@@ -95,34 +101,116 @@ function App() {
             <td>harina@vyatsu.ru</td>
             <td>610000, г. Киров, ул. Московская, д. 29</td>
           </tr>
+          <tr>
+            <td colSpan={5}>
+              <div style={{float: "left"}}>
+                <h4>
+                  <span style={{display: "inline-block", width: "60px"}}></span>
+                  Факультет компьютерных и физико-математических наук
+                </h4> {/*Раздел 1 относится к разделу 0, поэтому 1 табуляция в виде span*/}
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Декан, канд. пед. наук, доцент</td>
+            <td>Бояринцева Наталья Александровна</td>
+            <td>8 (8332) 742-412, 208-961 (деканат)</td>
+            <td>na_bushmeleva@vyatsu.ru</td>
+            <td>610002, Кировская область, г. Киров, ул. Ленина, д. 111, каб. 236</td>
+          </tr>
+          <tr>
+            <td colSpan={5}>
+                <div style={{float: "left"}}>
+                  <h4>
+                    <span style={{display: "inline-block", width: "60px"}}></span>
+                    <span style={{display: "inline-block", width: "60px"}}></span>
+                    Кафедра цифровых технологий в образовании
+                  </h4> {/*Раздел 2 относится к разделу 1, поэтому 2 табуляция в виде span*/}
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>И.о. завкафедрой, к.пед.н., доцент</td>
+            <td>Исупова Наталья Ивановна</td>
+            <td>8 (8332) 742-412 (зав.), 742-626 (каф.)</td>
+            <td>usr11710@vyatsu.ru</td>
+            <td>610000, г. Киров, ул. Свободы, 122 (уч. корп. № 16), ауд. 423</td>
+          </tr>
+          <tr>
+            <td colSpan={5}>
+                <div style={{float: "left"}}>
+                  <h4>
+                    <span style={{display: "inline-block", width: "60px"}}></span>
+                    <span style={{display: "inline-block", width: "60px"}}></span>
+                    Кафедра прикладной математики и информатики
+                  </h4> {/*Раздел 2 относится к разделу 1, поэтому 2 табуляция в виде span*/}
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Завкафедрой, канд. пед. наук, доцент</td>
+            <td>разова Елена Владимировна</td>
+            <td>8 (8332) 742-520, 742-521 (каф.)</td>
+            <td>ev_razova@vyatsu.ru</td>
+            <td>610002, Кировская область, г. Киров, ул. Ленина, д.111, каб. 137</td>
+          </tr>
+          <tr>
+            <td colSpan={5}>
+                <div style={{float: "left"}}>
+                  <h4>
+                    <span style={{display: "inline-block", width: "60px"}}></span>
+                    <span style={{display: "inline-block", width: "60px"}}></span>
+                    Кафедра фундаментальной математики
+                  </h4> {/*Раздел 2 относится к разделу 1, поэтому 2 табуляция в виде span*/}
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Завкафедрой, д. физ.-мат.н., профессор</td>
+            <td>Вечтомов Евгений Михайлович</td>
+            <td>8 (8332) 742-515, 742-516 (кафедра)</td>
+            <td>usr08006@vyatsu.ru, kaf_fikm@vyatsu.ru</td>
+            <td>610002, г. Киров, ул. Ленина, 111, каб. 203, 313 (кафедра)</td>
+          </tr>
+          <tr>
+            <td colSpan={5}>
+                <div style={{float: "left"}}>
+                  <h4>
+                    <span style={{display: "inline-block", width: "60px"}}></span>
+                    <span style={{display: "inline-block", width: "60px"}}></span>
+                    Кафедра физики и методики обучения физике
+                  </h4> {/*Раздел 2 относится к разделу 1, поэтому 2 табуляция в виде span*/}
+                </div>
+            </td>
+          </tr>
+
+          <tr>
+            <td>И. о. заведующего кафедрой, доцент, канд.физ.-мат.наук, заведующий кафедрой Инженерной физики</td>
+            <td>Хлебов Алексей Георгиевич</td>
+            <td>8 (8332) 742-412, 11-36 (внутр.)</td>
+            <td>ag_hlebov@vyatsu.ru</td>
+            <td>610002, Кировская область, г. Киров, ул. Ленина, д. 111, каб. 341</td>
+          </tr>
+          <tr>
+            <td colSpan={5}>
+                <div style={{float: "left"}}>
+                  <h4>
+                    <span style={{display: "inline-block", width: "60px"}}></span>
+                    <span style={{display: "inline-block", width: "60px"}}></span>
+                    Кафедра инженерной физики
+                  </h4> {/*Раздел 2 относится к разделу 1, поэтому 2 табуляция в виде span*/}
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <td>Завкафедрой, к.физ.-мат.н., доцент</td>
+            <td>Хлебов Алексей Георгиевич</td>
+            <td>	8 (8332) 742-730</td>
+            <td>ag_hlebov@vyatsu.ru kaf_fizika@vyatsu.ru</td>
+            <td>610002, г. Киров, ул. Ленина, д. 111, каб. 342</td>
+          </tr>
         </tbody>
-      </table>
-
-      <ul>
-        <li>
-          <h2>Институт математики и информационных систем</h2>
-          <ul>
-            <li>
-              <h3>Факультет компьютерных и физико-математических наук</h3>
-              <ul>
-                <h4>Кафедра прикладной математики и информатики</h4>
-              </ul>
-            </li>
-            <li>
-              <h3>Факультет автоматики и вычислительной техники</h3>
-              <ul>
-                <h4>Кафедра </h4>
-              </ul>
-            </li>
-          </ul>
-        </li>
-      </ul>
-
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-      </div>
+      </table>`
     </>
   )
 }
