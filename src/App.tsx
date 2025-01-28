@@ -1,9 +1,13 @@
 import './App.css'
+import TableComponent from './components/DisplayTable'
+import data from './ExampleData.json'
 
 function App() {
 
   return (
     <>
+      <TableComponent data={data} />
+
       `<table>
         <thead>
           <tr>
