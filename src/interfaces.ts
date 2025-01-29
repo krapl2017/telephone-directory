@@ -6,6 +6,7 @@ export interface TableItem {
     phone?: string;
     email?: string;
     address?: string;
+    type: string;
   }
   
   export interface TableData {

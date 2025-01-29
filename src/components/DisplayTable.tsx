@@ -1,25 +1,23 @@
 import { TableItem, TableData } from "../interfaces";
   
-// Компонент для отображения строки раздела
 const SectionRow: React.FC<{ name: string; level: number }> = ({ name, level }) => (
     <tr>
         <td colSpan={5}>
-        <div style={{ float: "left" }}>
-            <h4>
-            {Array(level).fill(0).map((_, i) => (
-                <span 
-                key={i}
-                style={{ display: "inline-block", width: "60px" }}
-                />
-            ))}
-            {name}
-            </h4>
-        </div>
+            <div style={{ float: "left" }}>
+                <h4>
+                {Array(level-1).fill(0).map((_, i) => (
+                    <span 
+                    key={i}
+                    style={{ display: "inline-block", width: "60px" }}
+                    />
+                ))}
+                {name}
+                </h4>
+            </div>
         </td>
     </tr>
 );
-  
-// Компонент для отображения строки с данными человека
+
 const PersonRow: React.FC<{ person: TableItem }> = ({ person }) => (
     <tr>
         <td>{person.jobTitle}</td>
@@ -30,17 +28,7 @@ const PersonRow: React.FC<{ person: TableItem }> = ({ person }) => (
     </tr>
 );
   
-  // Основной компонент таблицы
-const TableComponent: React.FC<{ data: TableData }> = ({ data }) => {
-    // Создаем словарь для быстрого доступа к элементам
-    const itemsMap = new Map<string, TableItem>(data.items.map(item => [item.id, item]));
-    
-    // Функция для вычисления уровня вложенности
-    const getItemLevel = (item: TableItem): number => {
-      if (!item.fatherId) return 0;
-      const father = itemsMap.get(item.fatherId);
-      return father ? getItemLevel(father) + 1 : 0;
-    };
+const DisplayTable: React.FC<{ data: TableData }> = ({ data }) => {
   
     return (
       <table>
@@ -55,26 +43,27 @@ const TableComponent: React.FC<{ data: TableData }> = ({ data }) => {
         </thead>
         <tbody>
           {data.items.map(item => {
-            if (!item.jobTitle) {
-              // Это раздел
-              return (
+            if (item.type === "0") return <PersonRow key={item.id} person={item} />;
+            return (
                 <SectionRow
-                  key={item.id}
-                  name={item.name || ""}
-                  level={getItemLevel(item)}
+                    key={item.id}
+                    name={item.name || ""}
+                    level={Number(item.type)}
                 />
-              );
-            }
-            // Это человек
-            return <PersonRow key={item.id} person={item} />;
+            );
           })}
         </tbody>
       </table>
     );
 };
 
-export default TableComponent;
-  
-  // Пример использования (предполагается, что данные загружаются через import)
-  // import data from './file.json';
-  // <TableComponent data={data} />
+export default DisplayTable;
+
+// 0 - человек
+// всё что не 0, объединение столбцов
+// 1 - 0 отступ
+// 2 - 1 отступ
+// ...
+// n - n-1 отступ
+
+// если 2 два объекта относятся к одному разделу .fatherId === .fatherId, то раньше идёт с type 0
