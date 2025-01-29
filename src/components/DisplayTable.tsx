@@ -1,5 +1,5 @@
 import { TableItem, TableData } from "../interfaces";
-  
+
 const SectionRow: React.FC<{ name: string; level: number }> = ({ name, level }) => (
     <tr>
         <td colSpan={5}>
@@ -20,16 +20,19 @@ const SectionRow: React.FC<{ name: string; level: number }> = ({ name, level }) 
 
 const PersonRow: React.FC<{ person: TableItem }> = ({ person }) => (
     <tr>
-        <td>{person.jobTitle}</td>
+        <td>
+            <div style={{ float: "left" }}>
+                {person.jobTitle}
+            </div>
+        </td>
         <td>{person.name}</td>
         <td>{person.phone}</td>
         <td>{person.email}</td>
         <td>{person.address}</td>
     </tr>
 );
-  
+
 const DisplayTable: React.FC<{ data: TableData }> = ({ data }) => {
-  
     return (
       <table>
         <thead>
